@@ -15,7 +15,7 @@ class ProductController(private val productService: ProductService) {
         return ResponseEntity.of(this.productService.findBydId(id))
     }
 
-    @GetMapping("/")
+    @GetMapping
     fun findAll(): ResponseEntity<List<Product>> {
         return ResponseEntity.ok(this.productService.findAll())
     }
