@@ -5,5 +5,5 @@ import javax.persistence.GeneratedValue
 import javax.persistence.GenerationType
 import javax.persistence.Id
 
-@Entity
+@Entity(name = "APPLICATION_USER")
 data class ApplicationUser(@Id @GeneratedValue(strategy = GenerationType.IDENTITY) val id: Long, val username: String, val password:String)
