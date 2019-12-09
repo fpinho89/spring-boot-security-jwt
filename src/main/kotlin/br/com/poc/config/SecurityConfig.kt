@@ -16,7 +16,9 @@ class SecurityConfig(private val userDetailsService: UserDetailsService) : WebSe
 
     @Throws(Exception::class)
     override fun configure(httpSecurity: HttpSecurity) {
-        httpSecurity.csrf().disable().authorizeRequests()
+        httpSecurity.headers().frameOptions().disable()
+        httpSecurity
+                .csrf().disable().authorizeRequests()
                 .antMatchers("/home").permitAll()
                 .antMatchers(HttpMethod.POST, "/login").permitAll()
                 .antMatchers("/h2-console/**").permitAll()
